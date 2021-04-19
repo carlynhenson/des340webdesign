@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rombo 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+
+  <style>
+    /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+  body{
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+    div.slide1 {
+      height:100vh;
+      background-color: #e5e5e5;
+      background-image:url(res/heroimg1.jpg);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position: center center;
+      position: relative;
+    }
+    div.title {
+      display:grid;
+      height:100vh;
+      text-align:center;
+      background:url(res/transparentshape.svg);
+      background-repeat:no-repeat;
+      background-position:bottom right;
+      background-size:contain;
+    }
+    div.title div.holder{
+      align-self: end;
+      jusitfy-self: center;
+    }
+    div.title h1{
+      font-size: 4em;
+      letter-spacing: 0.2em;
+      margin-bottom: 1em;
+    }
+    div.title a{
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+      background-color: #e5e5e5;
+      padding:0.7em 2.5em;
+      margin-bottom:2em;
+      border-radius:30px;
+      transition:all 0.5s;
+    }
+    div.title a:hover{
+      background-color: #4d4d4d;
+      color: #fff;
+    }
+
+
+    div.slide2 {
+      height:100vh;
+      background-color: #fff;
+   }
+    div.grid2 {
+      display: grid;
+      grid-template-columns:1fr 1fr;
+      margin: 3vw;
+      grid-gap: 3vw;
+    }
+    @media only screen and (max-width: 800px) {
+      div.grid2{grid-template-columns:1fr;}
+    }
+    div.txt {
+      color: black;
+      width: 60ch;
+      position: center;
+      align-self: center;
+      justify-self: start;
+    }
+    div.txt.mirror{
+      justify-self:end;
+    }
+    div.txt h1 {
+      font-size: 4em;
+      line-height: 1.4em;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.1em;
+    }
+    div.txt p {
+      font-family: Garamond, serif;
+      font-size: 1.2em;
+      line-height: 1.4em;
+    }
+    div.img2{
+      align-self: center;
+      justify-self: end;
+    }
+    div.img2.mirror{
+      justify-self: start;
+    }
+    div.img2 img{
+      width: 100%;
+    }
+
+    div.slide3 {
+      height:100vh;
+      background-color: #e5e5e5;
+      background-image:url(res/heroimg1.jpg);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position: center center;
+      position: relative;
+    }
+    div.header {
+      background: #fff;
+      text-align:center;
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+    }
+    div.header h1{
+      font-size: 4em;
+      letter-spacing: 0.2em;
+      margin-bottom: 1em;
+      margin-top: 2em;
+    }
+    div.header p {
+      font-family: Garamond, serif;
+      font-size: 20px;
+      line-height: 25px;
+      width: 25em;
+      margin-left: 25%;
+      text-align: left;
+    }
+
+    div.slide4{
+      height: 100vh;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+    .column {
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+    }
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+    h3 {
+      font-family: GFS Didot;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 26px;
+      line-height: 32px;
+      text-align: center;
+      word-break: break-all;
+    }
+    p {
+      font-family: Garamond, serif;
+      font-size: 20px;
+      line-height: 25px;
+      text-align: left;
+    }
+    .row {
+      margin: 8px -16px;
+    }
+    .row,
+    .row > .column {
+      padding: 20px;
+    }
+    .centered {
+      display:block;
+      margin-left:12%;
+      width:90%;
+    }
+    .responsive{
+      width:100%;
+      height:auto;
+    }
+    .column {
+      float: center;
+      width: 25%;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    div.slide5{
+      height:200vh;
+      margin-left:25%;
+      }
+
+    div.slide5 .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+
+    div.slide5 .row:after {
+       display: table;
+      clear: both;
+    }
+    div.txt3{
+      color:black
+    }
+    div.txt3 h1{
+      font-family: Barlow Condensed;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 64px;
+      line-height: 77px;
+    }
+    div.txt3 p{
+      max-width: 287px;
+      max-height: 885px;
+      font-family: garamond, serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 27px;
+    }
+    div.txt3 img{
+      max-width: 650px;
+      margin-right: 25%;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="slide1">
+  <div class="title">
+    <div class="holder">
+      <h1>Rombo 2.0</h1>
+      <a href="#">Buy Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="grid2">
+    <div class="img2">
+      <img src="res/slide2img.jpg">
+    </div>
+    <div class="txt">
+      <h1> Picks <br> Reinvented </h1>
+      <p class="p">Guitar picks are the bridge between you and your instrument. A hidden hero in the hands of guitarists. A guitar pick is a very personal item and choosing the right one depends on several factors. Back in 2018, ROMBO started our personal search for the perfect balance between tone and ergonomics.</p>
+      <p>We have learned a lot during the last 3 years, and finally, we are ready to offer new experiences to guitar and bass players around the globe.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="grid2">
+    <div class="txt mirror">
+      <h1> Fresh <br> Approaches </h1>
+      <p class="p">During the creation of these new 4 plectrums, we used the following rules as a guideline. Work closely with professional guitarists, question our first designs, redefine what a user needs for best performance, and perform in-depth research.</p>
+      <p>After a long product development process, we have reached the point where we are extremely happy with the results!</p>
+    </div>
+    <div class="img2 mirror">
+      <img src="res/yellow.jpg">
+    </div>
+  </div>
+</div>
+
+<div class="slide3">
+  <div class="header">
+    <h1>Materials</h1>
+    <p>We are using a thermoplastic polymer. This material is used in aerospace and automobile industries, and has high mechanical strength, excellent impact resistance (guitar strings), and superior aesthetic properties.</p>
+    <br>
+    <p>With the usage of our "EcoBlack" material we are creating guitar picks out of 100% pre-consumer waste. The material is produced by a company in Italy called DOMO. They collect waste and separate the components to process it and create the granulate we use for the manufacturing of the EcoBlack guitar picks.</p>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="centered">
+    <div class="txt">
+      <p>We offer all our picks in EcoBlack: A 100% recycled material from pre-consumer fibre waste.</p>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="res/closeup.png" style="width:100%" class"responsive">
+          <h3>HIGH-MIRROR<br>POLISHED PICK TIP</h3>
+          <p>Low friction, increased durability and reduced pick noise.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="res/pickrope.png" style="width:100%"class"responsive">
+          <h3>MOCRONODULES GRIP<br>STRUCTURE</h3>
+          <p>This grip texture feels great between your fingers.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="res/minivan.png" style="width:100%"class"responsive">
+          <h3>BEST<br>MATERIALS</h3>
+          <p>High mechanical strength and stiffness means high durability. </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="res/upclose2.png" style="width:100%"class"responsive">
+          <h3>ERGONOMIC<br>SURFACES</h3>
+          <p>Natural hold. The 3D surfaces avoid the turning of the guitar pick.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img src="res/upclose1.png" style="width:100%"class"responsive">
+        <h3>VARIABLE<br>THICKNESS</h3>
+        <p>Perfect balance betweenhold and attaack areas. Increases bass tones and control.</p>
+      </div>
+      <div class="column">
+        <img src="res/upclose3.png" style="width:100%"class"responsive">
+        <h3>UNIQUE<br>DESIGNS</h3>
+        <p>Designs and colors inspired by nature. Two different surface finishes. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide5">
+  <div class="txt3">
+    <div class="row">
+      <div class="columns">
+        <h1>Pick Durability:</h1>
+        <p>Defining attributes for durability: <br>
+          Material<br><br>Thickness<br><br>Tip Shape<br><br>Texture<br>
+          Harder materials will wear down slower. The goal is to find a wear-resistent material, that keeps the tone characteristics that guitar players want, while still giving a good grip.
+          <br><br>Very pointed guitar tips tend to wear down faster. However, this can be partially solved with the right guitar tip texture. A polished tip on the guitar will cause less friction between strings and plectrum.
+          <br><br>Textures define grip, control, and friction between the strings and guitar pick. It also focuses on details such as comfort, pick noise, and design.
+          <br><br>The combination of two different surface finishes in the guitar picks, have convinced us, and our testers, of the potential gains a player can achieve:
+          </p>
+          <br><br><br>
+          <p style="margin-left:3em; max-width:195px">A polished tip for clarity, durability and control<br><br>
+          A micro-nodules texture in the center of the pick for the most comfortable holding without compromising grip</p>
+      </div>
+      <div class="columns">
+        <img src="res/pickprocess.png" class"responsive">
+        <img src="res/micronodules.png" class"responsive">
+       </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="grid2">
+    <div class="txt mirror">
+      <h1> Why Order Online?</h1>
+      <p class="p">You are able to gather more information and find more detailed descriptions online. Guitar picks rarely have proper packaging with the product description in stores. However, in most online shops, product pages show you everything you need to know.
+      <br><br>
+      In addition, you are able to have personal contact with the guitar pick makers. By doing this, not only the customer profits from this, bur also the guitar pick maker, who gets to know the customer in a more detailed way and becomes aware of the problems to solve.
+      <br><br>
+      Not to mention that guitar pick store are open 24/7!</p>
+    </div>
+    <div class="img2 mirror">
+      <img src="res/casette.png">
+    </div>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="grid2">
+    <div class="img2">
+      <img src="res/buyingonline.png">
+    </div>
+    <div class="txt">
+      <h1> Buying Picks Online</h1>
+      <p class="p">There is a huge variety of guitar picks available online. they can be made of everything you can imagine—metal, wood pieces, high-tech thermoplastics, etc.
+      <br><br>
+      There are lots of guitar pick makers using their knowledge to create guitar picks that differe a lot form common guitar picks of mass production guitar picks.
+      <br><br>
+      Additionally, by choosing to buy online, you are most likely helping a small business that is creating these guitar picks out of passion.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
